@@ -82,7 +82,7 @@ using ariel::PhysicalNumber, ariel::Unit;
               }
               else if(unitB==6){//unitB=hour
                 temp.setUnit(ariel::SEC);
-                temp.setNum(b.getNum()*360);
+                temp.setNum(b.getNum()*3600);
                 return temp;
               }
             }
@@ -295,11 +295,16 @@ return ans;
       }else{
       throw std::invalid_argument("invalid input");
       }
+      try{
       stringstream _num(_number);
       double x=0;
       _num>>x;
       n.setNum(x);
       return is;
+      }catch(int e){
+      throw std::invalid_argument("invalid input");
+
+      }
       }
      ostream& ariel::operator<<(ostream & os,const PhysicalNumber& f){
     string output ="";
