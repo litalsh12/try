@@ -31,8 +31,8 @@ class PhysicalNumber{
 
       PhysicalNumber& operator--();
       PhysicalNumber& operator++();
-      const PhysicalNumber operator++(int); //[V]
-      const PhysicalNumber operator--(int); 
+      PhysicalNumber operator++(int); //[V]
+      PhysicalNumber operator--(int); 
       
      //
 ///////////////////////////////////////

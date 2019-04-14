@@ -27,49 +27,6 @@ using ariel::PhysicalNumber, ariel::Unit;
          return true;
        }
      }
-  
-     /*double ariel::change( PhysicalNumber a,PhysicalNumber b){
-            Unit unitA=a.getUnit();
-            Unit unitB=b.getUnit();
-            //PhysicalNumber temp=PhysicalNumber();
-            if(unitA==1){//unitA=cm
-              if(unitB==2){//unitB=m
-                //temp.setUnit(ariel::CM);
-              //  temp.setNum(b.getNum()*100);
-                return b.getNum()*100;
-              }
-              else if(unitB==3){//unitB=km
-               // temp.setUnit(ariel::CM);
-               // temp.setNum(b.getNum()*100000);
-                return b.getNum()*100000;
-              }
-            }
-            if(unitA==2){//unitA=m
-                   if(unitB==1){//unitB=cm
-              //  temp.setUnit(ariel::M);
-            //    temp.setNum(b.getNum()/100);
-                return b.getNum()/100;
-              }
-              else if(unitB==3){//unitB=km
-               // temp.setUnit(ariel::M);
-              //  temp.setNum(b.getNum()*1000);
-                return b.getNum()*1000;
-              } 
-            }
-              if(unitA==3){//unitA=km
-                   if(unitB==1){//unitB=cm
-              //  temp.setUnit(ariel::KM);
-                //temp.setNum(b.getNum()/100000);
-                return b.getNum()/100000;
-              }
-              else if(unitB==2){//unitB=m
-               // temp.setUnit(ariel::KM);
-              //  temp.setNum(b.getNum()/1000);
-                return b.getNum()/1000;
-              }
-            }
-            return 0;
-     }*/
         PhysicalNumber ariel::change( PhysicalNumber a,PhysicalNumber b){
             Unit unitA=a.getUnit();
             Unit unitB=b.getUnit();
@@ -285,12 +242,12 @@ throw std::invalid_argument("the unit are not at the same dim");
        return      false;
      }
      //
-const PhysicalNumber ariel::PhysicalNumber::operator++(int) {
+PhysicalNumber ariel::PhysicalNumber::operator++(int) {
 PhysicalNumber ans=*this;
 this->num ++ ;
 return ans;
 }
-const PhysicalNumber ariel::PhysicalNumber::operator--(int) { 
+PhysicalNumber ariel::PhysicalNumber::operator--(int) { 
 PhysicalNumber ans=*this;
 this->num -- ;
 return ans;
