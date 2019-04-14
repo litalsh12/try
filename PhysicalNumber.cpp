@@ -6,6 +6,8 @@ using std::cout, std::endl, std::boolalpha, std::istringstream;
 #include "PhysicalNumber.h"
 #include "Unit.h"
 using ariel::PhysicalNumber, ariel::Unit;
+
+
      ariel::PhysicalNumber::PhysicalNumber(double n,Unit _unit){
      this->num=n;
      this->_unit=_unit;
@@ -27,6 +29,8 @@ using ariel::PhysicalNumber, ariel::Unit;
          return true;
        }
      }
+
+
         PhysicalNumber ariel::change( PhysicalNumber a,PhysicalNumber b){
             Unit unitA=a.getUnit();
             Unit unitB=b.getUnit();
@@ -172,7 +176,7 @@ throw std::invalid_argument("the unit are not at the same dim");
      ariel::PhysicalNumber ariel::PhysicalNumber::operator- (const PhysicalNumber& right){
                 if(theSameDim(this->_unit,right._unit)){
         PhysicalNumber ans= ariel::change(*this,right);
-        ans.setNum(ans.getNum()-this->getNum());
+        ans.setNum(this->getNum()-ans.getNum());
                 return      ans;
 
        }
@@ -187,7 +191,6 @@ throw std::invalid_argument("the unit are not at the same dim");
      }
     ariel::PhysicalNumber ariel::PhysicalNumber::operator-(){
          this->setNum(this->getNum()*-1);
-       
        return      *this;
        }
 

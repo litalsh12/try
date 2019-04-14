@@ -69,7 +69,7 @@ int main() {
     .CHECK_OUTPUT(km-m, "6.5[km]")
     .CHECK_OUTPUT(km+km , "14[km]")
     .CHECK_OUTPUT((m-=km), "-6500[m]")
-    .CHECK_OUTPUT((km+=m) , "7.5[km]")
+    .CHECK_OUTPUT((km+=m) , "0.5[km]")
     .CHECK_OUTPUT(++cm , "21[cm]")
     .CHECK_OUTPUT(--km , "6.5[km]")
  
