@@ -264,10 +264,43 @@ return ans;
        return      *this;
      }
      //
-     istream& ariel::operator>> (istream & is,PhysicalNumber& n){
+      istream& ariel::operator>> (istream & is,PhysicalNumber& n){
+      string input;
+      is >> input;
+      int block1=input.find('[');
+      int block2=input.find(']');
+      if(block1>block2||block2==-1||block1==-1){
+        throw std::invalid_argument("invaild input");
+      }
+      string _number = input.substr(0,block1);
+      string _unit = input.substr(block1+1 ,block2 - block1 - 1);
+      if(_unit=="cm"){
+      n.setUnit(CM);
+      }else if(_unit=="m"){
+      n.setUnit(M);
+      }else if(_unit=="km"){
+      n.setUnit(KM);
+      }else if(_unit=="sec"){
+      n.setUnit(SEC);
+      }else if(_unit=="min"){
+      n.setUnit(MIN);
+      }else if(_unit=="hour"){
+      n.setUnit(HOUR);
+      }else if(_unit=="g"){
+      n.setUnit(G);
+      }else if(_unit=="kg"){
+      n.setUnit(KG);
+      }else if(_unit=="ton"){
+      n.setUnit(TON);
+      }else{
+      throw std::invalid_argument("invalid input");
+      }
+      stringstream _num(_number);
+      double x=0;
+      _num>>x;
+      n.setNum(x);
       return is;
-
-     }
+      }
      ostream& ariel::operator<<(ostream & os,const PhysicalNumber& f){
     string output ="";
     switch (f._unit){
